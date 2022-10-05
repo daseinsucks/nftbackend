@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  backend:
+    image: ghcr.io/moonshrd/nftbackend:master
+    networks:
+      - swarm
+    env_file:
+      - master.env
+    deploy:
+      mode: replicated
+      replicas: 1
+
+networks:
+  swarm:
+    name: master_moon
+    external: true

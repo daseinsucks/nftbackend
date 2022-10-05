@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend:
+    image: ghcr.io/moonshrd/nftbackend:dev
+    ports:
+      - "8091:80"
+    networks:
+      - swarm
+    env_file:
+      - dev.env
+    deploy:
+      mode: replicated
+      replicas: 1
+
+networks:
+  swarm:
+    name: dev_moon
+    external: true
